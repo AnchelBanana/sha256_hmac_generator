@@ -1,0 +1,22 @@
+import hashlib
+import hmac
+
+message1='message1'
+message2='message2'
+message3='message3'
+key1='eFJ2MWIOSiDF9305NPFOeFzC5vN6mvBR'
+
+message1_1 = bytes(message1, 'utf-8')
+message1_2 = bytes(message2, 'utf-8')
+message1_3 = bytes(message3, 'utf-8')
+secret = bytes(key1, 'utf-8')
+
+hash = hmac.new(secret, message1_1, hashlib.sha256)
+hash2 = hmac.new(secret, message1_2, hashlib.sha256)
+hash3 = hmac.new(secret, message1_3, hashlib.sha256)
+
+# to lowercase hexits
+
+print(hash.hexdigest())
+print(hash2.hexdigest())
+print(hash3.hexdigest())
